@@ -25,9 +25,10 @@ The only thing you need to do for this code to work on your computer is to provi
 
 ```{r}
 
-#Install tidyverse
+# Install tidyverse and data.table packages
 library(tidyverse)
 library(data.table)
+
 # data.table is faster compared to readr so we'll use it in this case (the function fread()). You need to install this package first to be able to run this code.
 
 
@@ -179,14 +180,12 @@ Base <- Long %>%
   group_by(pidp) %>%
   mutate(NumberWave = length(unique(wave))) %>%
   filter(NumberWave == 7)
-Base
 
 # Q2: Calculate Deltas for each person
 Deltas <- Base %>%
   group_by(pidp) %>%
   # Sum of absolute change: (n2 - n1) + (n3 - n1) ... etc.
   mutate(Delta = sum(abs(vote6 - lag(vote6)), na.rm = TRUE)) 
-Deltas
 
 # For the next questions, the table was simplified to only show Wave 1 ("a") rows. This further answers Q2 more neatly.
 DAnalysis <- Deltas %>%
