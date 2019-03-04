@@ -77,7 +77,7 @@ Long <- all7 %>%
   melt(id = "pidp") %>%
   separate(variable, into = c("wave", "variable"), sep = "_", extra = "merge") %>%
   dcast(pidp + wave ~ variable)
-Long
+head(Long)
   
 ```
 
