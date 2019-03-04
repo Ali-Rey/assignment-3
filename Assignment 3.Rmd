@@ -146,7 +146,7 @@ meanVote6 %>%
 
 ```
 
-The data appears to suggest that females are consistently more likely on average to have lower political interest than males. From Waves a-e, both men and women are more likely to be on the lower end of the scale (ie. Responding as 3 or 4), however men become more interested (More likely to respond 1 or 2) in Waves f and q. Interestingly, the fluctuations in interest in sexes between waves seem to be rise and fall in tandem (The exception to this being Wave C to D).
+The data appears to suggest that females are consistently more likely on average to have less political interest than males. From Waves a-e, both men and women are more likely to be on the "lower" end of the scale (ie. Responding as 3 or 4), however men become more interested (More likely to respond 1 or 2) in Waves f and q. Interestingly, the fluctuations in interest in sexes between waves seem to be rise and fall in tandem (The exception to this being Wave C to D).
 
 ## Estimate stability of political interest (30 points)
 
@@ -198,10 +198,17 @@ DSexMean <- DAnalysis %>%
       summarise(mean = mean(Delta))
 DSexMean
 
+```
+
+On average, both men and women have a similar amount of political volitility, with men being slightly more volatile than women. On average, respondents over the course of 7 waves will change their political interest by a net absolute sum of approximately 2.5.
+
+```{r}
+
 # Calculate Mean by age (at wave 1)
 DAgeMean <- DAnalysis %>%
       group_by(age_dv) %>%
       summarise(mean = mean(Delta))
+DAgeMean
 
 # Plotting DAgeMean
 DAgeMean %>%
@@ -211,5 +218,6 @@ DAgeMean %>%
   # Add axis labels
       xlab("Age at Wave 1") +
       ylab("Volitility of Political Interest")
+
 ```
 Throughout the life course, it seems that respondents who were young adults in Wave 1 tend to fluctuate slightly in their political opinion, whilst middle-aged respondents changed the least, and seniors (Exponentially past the age of around 55) are most volatile. This could suggest that people will be likely to vary their opinions during their young adult years whilst increasingly stabilising through their adult and middle-aged years. This trend then dramatically changes as people enter their senior years, where they become exponentially more likely to fluctuate in their political opinions.
